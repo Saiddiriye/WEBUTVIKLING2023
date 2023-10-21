@@ -15,19 +15,95 @@
         </header>
         <section>
             <article>
+                <form method="post" action="#" autocomplete="on">
+                    <label> E-postaddresse</label>
+                    <input type="email" name="email" placeholder="nora@epost.no.." id="email"> 
+                    <label for="passwod">Passord</label>
+                    <input type="Password" name="password" placeholder="********" id="Password">
+                    <input type="submit" value="Logg inn">
+                    <a href="#">Glemt Passord?</a>
+                </form>
                 <button onclick="openClose(`flex`)">Opprett ny konto</button>
             </article>
             <p><strong>Opprett en side</strong> for en kjendis, et merke eller en bedrift.</p>
         </section>
     </main>
     <section id="user-registration">
-        <form id="user-reg">
+        <form id="user-reg" method="post" action="#" autocomplete="on">
             <span onclick="openClose(`none`)">X</span>
+            <h3>Registrer bruker</h3>
+            <h4> Det er raskt og det er lett.</h4>
+            <label for="name">
+                Fornavn
+                <input type="text" name="Fname" placeholder="Nora">
+            </label>
+            <label for="Lname">
+                Etternavn
+                <input type="text" name="Lname" placeholder="Nordmann..">
+            </label>
+            <label for="user-reg-email">E-postaddresse</label>
+            <input type="text" name="user-reg-email" id="user-reg-email" placeholder="nora@epost-no">
+            <label for="user-reg-pass"> Passord </label>
+            <input type="password" name="user-reg-pass" id="user-reg-pass" placeholder="*******">
+            <label class="select-option-text"> Fødselsdato</label>
+            <select id="day" name="daylist" form="user-reg">
+                <select value="day" name = "daylist" form="user-reg">
+            </select>
+            <select id="month" name="monthlist" form="user-reg"></select>
+                <option value="Jan">Jan</option>
+                <option value="feb">Feb</option>
+                <option value="mars">Mars</option>
+                <option value="april">April</option>
+                <option value="mai">Mai</option>
+                <option value="jun">Juni</option>
+                <option value="juli">Juli</option>
+                <option value="aug">August</option>
+                <option value="sep">september</option>
+                <option value="okt">Oktober</option>
+                <option value="nov">November</option>
+                <option value="des">Desember</option>
+            </select>
+            <select id="year" name="yearList" form="user-reg">
+
+            </select>
+            <label class="select-option-text"> kjønn </label>
+            <label class="radio-label">
+                Kvinne
+                <input type="radio" value="kvinne" id="kvinne" name="gender">
+            </label>
+            <label class="radio-label">
+                 Mann
+                <input type="radio" value="mann" id="mann" name="gender">
+            </label>
+            <label type="radio" value="mann" id="mann"></label>
+            
+            <label class="radio-label">
+                Egenedefinert
+                <input type="radio" value="egen" id="egen" name="gender">
+            </label>
+            <p>BL ASHJD HASDDJHASJH HDSA HJHJASH ASDH AS ASD ASD SAD </p>
+            <P>O ASNBI DSAIOADSN ODAIN DAINOD SIAS INSOINA DSINSA INO DASOI</P>
+            <input type="submit" value="Registrer">
         </form>
         
     </section>
 
     <script>
+
+        let dayList = document.getElementById("day")
+        let yearList = document.getElementById("year")
+        let thisYear = new Date().getFullYear()
+
+        for(let i = 1; i <= 31; i++) {
+            let option = new Option(i,i)
+            dayList.appendChild(option)
+             }
+
+        for(let i = thisYear; i <= thisYear - 100; i--) {
+            let option = new Option(i, i)
+            yearList.appendChild(option)
+        }
+
         const openClose = (value)=>{
             document.getElementById("user-registration").style.display = value;
         }
